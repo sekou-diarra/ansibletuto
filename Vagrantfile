@@ -10,9 +10,32 @@ Vagrant.configure(2) do |config|
   # For a complete reference, please see the online documentation at
   # https://docs.vagrantup.com.
 
+  config.vm.define "host1" do |host1|
+    host1.vm.box = "ubuntu/trusty64"
+    host1.vm.network "private_network", type: "dhcp"
+  end
+
+
+  config.vm.define "host2" do |host2|
+    host2.vm.box = "ubuntu/trusty64"
+    host2.vm.network "private_network", type: "dhcp"
+  end
+
+
+  config.vm.define "host3" do |host3|
+    host3.vm.box = "ubuntu/trusty64"
+    host3.vm.network "private_network", type: "dhcp"
+  end
+
+
+  config.vm.define "host4" do |host4|
+    host4.vm.box = "ubuntu/trusty64"
+    host4.vm.network "private_network", type: "dhcp"
+  end
+
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "ubuntu/trusty64"
+   # config.vm.box = "ubuntu/trusty64"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -22,12 +45,12 @@ Vagrant.configure(2) do |config|
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
-   config.vm.network "forwarded_port", guest: 80, host: 8080
-   config.vm.network "forwarded_port", guest: 443, host: 8443
+   #config.vm.network "forwarded_port", guest: 80, host: 8080
+   #config.vm.network "forwarded_port", guest: 443, host: 8443
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  # config.vm.network "private_network", ip: "192.168.33.10"
+    config.vm.network "private_network", type: "dhcp"
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
